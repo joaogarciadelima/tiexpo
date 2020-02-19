@@ -24,7 +24,7 @@ jobs:
         python-version: 3.8
     - name: Copying configurations
       run: |
-        cp contrib/env-sample .env
+        cp contrib/env_sample .env
     - name: Install dependencies
       run: |
         pip install pipenv
