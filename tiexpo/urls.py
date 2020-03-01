@@ -17,15 +17,18 @@ from django.conf import settings
 from django.contrib import admin
 from django.urls import path, include
 
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('tiexpo.base.urls')),
-    # path('pacientes/', include('controledental.pacientes.urls'), name='pacientes'),
+    path('albuns/', include('tiexpo.albuns.urls'), name='albuns'),
     # path('tratamento/', include('controledental.cadastrotratamento.urls'), name='tratamento')
 ]
 
 if settings.DEBUG:
     import debug_toolbar
+    from django.conf.urls.static import static
     urlpatterns.append(
         path('__debug__/', include(debug_toolbar.urls))
     )
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
