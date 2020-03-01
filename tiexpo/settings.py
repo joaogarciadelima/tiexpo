@@ -35,6 +35,7 @@ INSTALLED_APPS = [
     'collectfast',
     'django.contrib.staticfiles',
     'tiexpo.base',
+    'tiexpo.albuns',
 ]
 
 MIDDLEWARE = [

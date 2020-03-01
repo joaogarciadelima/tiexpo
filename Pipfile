@@ -10,6 +10,7 @@ pytest = "*"
 django-debug-toolbar = "*"
 pytest-cov = "*"
 codecov = "*"
+model-mommy = "*"
 
 [packages]
 django = "*"
@@ -21,6 +22,7 @@ django-s3-folder-storage = "*"
 collectfast = "*"
 sentry-sdk = "*"
 djangorestframework = "*"
+pillow = "*"
 
 [requires]
 python_version = "3.8"
