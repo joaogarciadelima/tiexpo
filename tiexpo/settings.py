@@ -61,6 +61,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'tiexpo.albuns.context_processors.listar_albuns',
             ],
         },
     },
@@ -147,6 +148,7 @@ if AWS_ACCESS_KEY_ID:
     AWS_S3_CUSTOM_DOMAIN = None
 
     COLLECTFAST_ENABLED = True
+    COLLECTFAST_STRATEGY = "collectfast.strategies.boto3.Boto3Strategy"
     AWS_DEFAULT_ACL = 'private'
 
     # Static Assets
