@@ -5,7 +5,7 @@ from tiexpo.django_assertions import assert_contains
 
 
 @pytest.fixture
-def resp(client):
+def resp(client, db):
     resp = client.get(reverse('base:home'))
     return resp
 
@@ -15,11 +15,11 @@ def test_status_code(resp):
 
 
 def test_title(resp):
-    assert_contains(resp, '<title>Tiexpo</title>')
+    assert_contains(resp, '<title>TieExpo</title>')
 
 
 def test_home_link(resp):
-    assert_contains(resp, f'href="{reverse("base:home")}">Controle Dental')
+    assert_contains(resp, f'href="{reverse("base:home")}">Tie Expo APP')
 
 
 def test_footer_fone(resp):
