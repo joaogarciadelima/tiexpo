@@ -23,9 +23,9 @@ def test_home_link(resp):
 
 
 def test_footer_fone(resp):
-    assert_contains(resp, '<a href="tel:+5537988323652" class="text-light">+55 (37)98832-3652</a>')
+    assert_contains(resp, '<a href="tel:+553732289500" class="text-light">+55 (37)3228-9500</a>')
 
 
 def test_footer_email(resp):
-    assert_contains(resp, '<a href="mailto:joaogarciadelimaneto@gmail.com" class="text-light">'
-                          'joaogarciadelimaneto@gmail.com</a>')
+    assert_contains(resp, '<a href="mailto:contato@tierepresentacoes.com.br" class="text-light">'
+                          'contato@tierepresentacoes.com.br</a>')

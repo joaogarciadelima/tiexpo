@@ -10,6 +10,7 @@
 
     <meta name="description" content="Página para controle de pacientes">
     <meta name="author" content="João Garcia">
+    <link rel="icon" type="'image/png" href="{% static 'img/favicon-16x16.png' %}"/>
     <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
     <link href="{% static 'css/style.css' %}" rel="stylesheet">
 {#    <link href="{% static 'css/album.css' %}" rel="stylesheet">#}
@@ -19,7 +20,8 @@
 
 </head>
 <body>
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+{#<nav class="navbar navbar-expand-lg navbar-dark bg-dark">#}
+<nav class="navbar navbar-expand-lg navbar-dark text-light" style="background-color: #135594; text">
     <a class="navbar-brand" href="{% url 'base:home' %}">Tie Expo APP</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse"
             data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
@@ -49,9 +51,10 @@
         <div class="row">
             <div class="col">
                 <h3>Entre em contato</h3>
-                <a href="tel:+5537988323652" class="text-light">+55 (37)98832-3652</a>
+                <address class="mb-2">
+                <a href="tel:+553732289500" class="text-light">+55 (37)3228-9500</a>
                 </br>
-                <a href="mailto:joaogarciadelimaneto@gmail.com" class="text-light">joaogarciadelimaneto@gmail.com</a>
+                <a href="mailto:contato@tierepresentacoes.com.br" class="text-light">contato@tierepresentacoes.com.br</a>
                 </address>
             </div>
         </div>
@@ -60,7 +63,7 @@
         <div class="container mb-5">
             <div class="row">
                 <div class="col">
-                    {% now 'Y' %} João Garcia de Lima. Todos os direitos reservados.
+                    {% now 'Y' %} Tiê Representações e Assessoria. Todos os direitos reservados.
                 </div>
             </div>
         </div>
