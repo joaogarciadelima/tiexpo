@@ -20,9 +20,9 @@ from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('contas/', include('django.contrib.auth.urls')),
     path('', include('tiexpo.base.urls')),
     path('albuns/', include('tiexpo.albuns.urls'), name='albuns'),
-    # path('tratamento/', include('controledental.cadastrotratamento.urls'), name='tratamento')
 ]
 
 if settings.DEBUG:
