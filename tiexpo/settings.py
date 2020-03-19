@@ -24,6 +24,9 @@ ALLOWED_HOSTS = config('ALLOWED_HOSTS', cast=Csv())
 
 AUTH_USER_MODEL = 'base.User'
 
+LOGIN_URL = '/contas/login/'
+
+LOGIN_REDIRECT_URL = '/albuns/'
 # Application definition
 
 INSTALLED_APPS = [

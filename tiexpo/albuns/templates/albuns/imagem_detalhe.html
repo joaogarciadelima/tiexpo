@@ -4,23 +4,55 @@
 {% block title %}Controle de aulas - Aperitivo{% endblock title %}
 {% block description %}Página com video gratuito{% endblock description %}
 {% block body %}
-    <nav aria-label="breadcrumb">
-        <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="#">Home</a></li>
-            <li class="breadcrumb-item"><a href="{{imagem.album.get_absolute_url}}">{{imagem.album.titulo}}</a></li>
-            <li class="breadcrumb-item active" aria-current="page">{{imagem.titulo}}</li>
-        </ol>
-    </nav>
     <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <h1 class="mt-4 mb-3">{{ imagem.titulo | default:"Faltando titulo" }}</h1>
+        <div class="container">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="#">Home</a></li>
+                    <li class="breadcrumb-item"><a
+                            href="{{ imagem.album.get_absolute_url }}">{{ imagem.album.titulo }}</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">{{ imagem.titulo }}</li>
+                </ol>
+            </nav>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h1 class="mt-4 mb-3">{{ imagem.titulo | default:"Faltando titulo" }}</h1>
+                    </div>
+                </div>
+            </div>
+            <div class="center" align="center">
+                <img src="{{ imagem.imagem.url }}" class="img-fluid" alt="Responsive image">
+            </div>
+
+            <div class="card" style="width: 18rem;" align="center">
+                <img src="{{ imagem.imagem.url }}" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Card title</h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                        card's content.</p>
+                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                </div>
+            </div>
+
+            <div class="card mb-3">
+                <img src="{{ imagem.imagem.url }}" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Card title</h5>
+                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
+                        additional content. This content is a little bit longer.</p>
+                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Card title</h5>
+                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
+                        additional content. This content is a little bit longer.</p>
+                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                </div>
+                <img src="{{ imagem.imagem.url }}" class="card-img-top" alt="...">
             </div>
         </div>
     </div>
-    <div class="center">
-       <img src="{{imagem.imagem.url}}" class="img-fluid" alt="Responsive image">
-    </div>
-
-
 {% endblock body %}

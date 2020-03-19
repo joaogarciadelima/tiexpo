@@ -30,3 +30,7 @@ def listar_albuns_com_imagens():
     return Album.objects.order_by('titulo').prefetch_related(
         Prefetch('imagem_set', queryset=imagens_ordenadas, to_attr='imagens')
     ).all()
+
+
+def listar_todas_imagens():
+    return list(Imagem.objects.all())
