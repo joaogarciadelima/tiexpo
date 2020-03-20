@@ -26,7 +26,7 @@ AUTH_USER_MODEL = 'base.User'
 
 LOGIN_URL = '/contas/login/'
 
-LOGIN_REDIRECT_URL = '/albuns/'
+LOGIN_REDIRECT_URL = '/albuns/imagens/'
 # Application definition
 
 INSTALLED_APPS = [
@@ -39,7 +39,17 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'tiexpo.base',
     'tiexpo.albuns',
+    'rest_framework',
+    'tiexpo.api',
 ]
+
+REST_FRAMEWORK = {
+    # Use Django's standard `django.contrib.auth` permissions,
+    # or allow read-only access for unauthenticated users.
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
+    ]
+}
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

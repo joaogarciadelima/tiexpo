@@ -23,6 +23,7 @@ urlpatterns = [
     path('contas/', include('django.contrib.auth.urls')),
     path('', include('tiexpo.base.urls')),
     path('albuns/', include('tiexpo.albuns.urls'), name='albuns'),
+    path('api/v1/', include('tiexpo.api.urls'), name='api'),
 ]
 
 if settings.DEBUG:
