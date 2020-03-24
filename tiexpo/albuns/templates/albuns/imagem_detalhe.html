@@ -5,54 +5,60 @@
 {% block description %}Página com video gratuito{% endblock description %}
 {% block body %}
     <div class="container">
-        <div class="container">
-            <nav aria-label="breadcrumb">
-                <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="#">Home</a></li>
-                    <li class="breadcrumb-item"><a
-                            href="{{ imagem.album.get_absolute_url }}">{{ imagem.album.titulo }}</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">{{ imagem.titulo }}</li>
-                </ol>
-            </nav>
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-12">
-                        <h1 class="mt-4 mb-3">{{ imagem.titulo | default:"Faltando titulo" }}</h1>
+        <!-- Card -->
+        <div class="card promoting-card">
+
+            <!-- Card content -->
+            <div class="card-body d-flex flex-row">
+
+                <!-- Avatar -->
+                <img src="{% static 'img/Logo.png' %}" class="rounded-circle mr-3"
+                     height="50px" width="50px" alt="avatar">
+
+                <!-- Content -->
+                <div>
+
+                    <!-- Title -->
+                    <h4 class="card-title font-weight-bold mb-2">{{ imagem.titulo }}</h4>
+                    <!-- Subtitle -->
+                    <p class="card-text"><i
+                            class="far fa-clock pr-2"></i>{{ imagem.data_publicacao |date:"SHORT_DATE_FORMAT" }}</p>
+
+                </div>
+
+            </div>
+
+            <!-- Card image -->
+            <div class="view overlay">
+                <img src="{{ imagem.imagem.url }}" class="card-img-top rounded-5" alt="...">
+                {#                        <a href="#!">#}
+                {#                            <div class="mask rgba-white-slight"></div>#}
+                {#                        </a>#}
+            </div>
+
+                    <!-- Card content -->
+                    <div class="card-body">
+
+                        <div class="collapse-content">
+
+                            <!-- Text -->
+                            <p>Recently, we added several exotic new
+                                dishes to our restaurant menu. They come from countries such as Mexico, Argentina, and
+                                Spain. Come to us, have some delicious wine and enjoy our juicy meals from around the
+                                world.</p>
+                            <!-- Button -->
+{#                            <a class="btn btn-flat red-text" data-toggle="collapse"#}
+{#                               href="#collapseContent" aria-expanded="false" aria-controls="collapseContent"></a>#}
+{#                            <i class="fas fa-share-alt text-muted float-right p-1 my-1" data-toggle="tooltip"#}
+{#                               data-placement="top" title="Share this post"></i>#}
+{#                            <i class="fas fa-heart text-muted float-right p-1 my-1 mr-3" data-toggle="tooltip"#}
+{#                               data-placement="top" title="I like it"></i>#}
+
+                        </div>
+
                     </div>
-                </div>
-            </div>
-            <div class="center" align="center">
-                <img src="{{ imagem.imagem.url }}" class="img-fluid" alt="Responsive image">
-            </div>
 
-            <div class="card" style="width: 18rem;" align="center">
-                <img src="{{ imagem.imagem.url }}" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                        card's content.</p>
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
                 </div>
-            </div>
-
-            <div class="card mb-3">
-                <img src="{{ imagem.imagem.url }}" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
-                        additional content. This content is a little bit longer.</p>
-                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                </div>
-            </div>
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
-                        additional content. This content is a little bit longer.</p>
-                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                </div>
-                <img src="{{ imagem.imagem.url }}" class="card-img-top" alt="...">
-            </div>
-        </div>
+                <!-- Card -->
     </div>
 {% endblock body %}
