@@ -30,10 +30,13 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
+              <li class="nav-item">
+        <a class="nav-link" href="{% url 'albuns:imagens' %}">Todas Imagens</a>
+      </li>
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
                    aria-haspopup="true" aria-expanded="false">
-                    Álbuns
+                    Imagens por fabricantes
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                     {% for album in ALBUNS %}
@@ -63,7 +66,7 @@
         {% else %}
             <a class="btn btn-light my-2 my-sm-0"
 {#               href="{% url 'login' %}?next={% url 'dashboard:home' %}">Entrar</a>#}
-           href="{% url 'login' %}?next=/albuns/imagens/">Entrar</a>
+           href="{% url 'login' %}?next=/contas/login/">Entrar</a>
         {% endif %}
     </div>
 </nav>
