@@ -5,39 +5,43 @@
 {% block body %}
     <div class="container">
         <div class="row">
-            <div class="col">
+            <div class="col-6">
+                <h1 class="mb-4 mt-4">Formulário de Login</h1>
                 {% if form.errors %}
-                    <p>Your username and password didn't match. Please try again.</p>
+                    <p>Seu uruário ou senha estão errados</p>
                 {% endif %}
 
                 {% if next %}
                     {% if user.is_authenticated %}
-                        <p>Your account doesn't have access to this page. To proceed,
-                            please login with an account that has access.</p>
+                        <p>Sua conta não tem acesso a essa página. Por favor faça login com outra conta</p>
                     {% else %}
-                        <p>Please login to see this page.</p>
+                        <p>Faça login para acessar essa página</p>
                     {% endif %}
                 {% endif %}
-
                 <form method="post" action="{% url 'login' %}">
                     {% csrf_token %}
-                    <table>
-                        <tr>
-                            <td>{{ form.username.label_tag }}</td>
-                            <td>{{ form.username }}</td>
-                        </tr>
-                        <tr>
-                            <td>{{ form.password.label_tag }}</td>
-                            <td>{{ form.password }}</td>
-                        </tr>
-                    </table>
+                    <input type="hidden" name="Next" value="{{ next }}">
+                    <div class="form-group">
+                        <label for="{{ form.username.id_for_label }}">{{ form.username.label_tag }}</label>
+                        <input type="email" name="{{ form.username.html_name }}" class="form-control"
+                               id="{{ form.username.id_for_label }}"
+                               aria-describedby="emailHelp" maxlength="{{ form.username.max_length }}"
+                               required="required" autofocus="">
+                        <small id="emailHelp" class="form-text text-muted">Nunca compartilharemos o seu email com
+                            ninguém.</small>
+                    </div>
+                    <div class="form-group">
+                        <label for="{{ form.password.id_for_label }}">{{ form.password.label_tag }}</label>
+                        <input type="password" name="{{ form.password.html_name }}" class="form-control"
+                               value="{{ field.value }}" autofocus="" maxlength="{{ form.password.max_length }}"
+                               required="required" id="{{ form.password.id_for_label }}">
+                    </div>
+                    <button type="submit" value="'login" class="btn btn-primary">
 
-                    <input type="submit" value="login">
-                    <input type="hidden" name="next" value="{{ next }}">
+                        Entrar
+                    </button>
                 </form>
-
-                {# Assumes you setup the password_reset view in your URLconf #}
-                <p><a href="{% url 'password_reset' %}">Esqueceu sua senha?</a></p>
+                <p class="mt-4"><a href="{% url 'password_reset' %}">Esqueceu a senha?</a></p>
             </div>
         </div>
     </div>
