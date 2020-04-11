@@ -108,3 +108,6 @@ venv.bak/
 staticfiles
 
 mediafiles
+
+# vscode
+.vscode
