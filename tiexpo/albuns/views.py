@@ -13,7 +13,7 @@ def indice(request):
 def detalhe(request, slug):
     album = facade.encontrar_album(slug)
     imagens = facade.listar_imagens_de_album_ordenadas(album)
-    return render(request, 'albuns/album_detalhe.html', {'album': album, 'imagens': imagens})
+    return render(request, 'albuns/imagens_por_album.html', {'album': album, 'imagens': imagens})
 
 
 @login_required
