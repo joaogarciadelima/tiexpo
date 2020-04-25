@@ -1,8 +1,8 @@
 {% extends 'base/base.html' %}
 {% load static %}
 
-{% block title %}Controle de aulas - Aperitivo{% endblock title %}
-{% block description %}Página com video gratuito{% endblock description %}
+{% block title %}Todas as imagens{% endblock title %}
+{% block description %}Todas as imagens{% endblock description %}
 {% block body %}
     <div class="container">
         <!-- Card -->
@@ -22,7 +22,7 @@
                     <h4 class="card-title font-weight-bold mb-2">{{ imagem.titulo }}</h4>
                     <!-- Subtitle -->
                     <p class="card-text"><i
-                            class="far fa-clock pr-2"></i>{{ imagem.data_publicacao |date:"SHORT_DATE_FORMAT" }}</p>
+                            class="far fa-clock pr-2"></i>Data da publicação: {{ imagem.data_publicacao |date:"SHORT_DATE_FORMAT" }}</p>
 
                 </div>
 
@@ -42,10 +42,7 @@
                         <div class="collapse-content">
 
                             <!-- Text -->
-                            <p>Recently, we added several exotic new
-                                dishes to our restaurant menu. They come from countries such as Mexico, Argentina, and
-                                Spain. Come to us, have some delicious wine and enjoy our juicy meals from around the
-                                world.</p>
+                            <p>{{ imagem.descricao }}</p>
                             <!-- Button -->
 {#                            <a class="btn btn-flat red-text" data-toggle="collapse"#}
 {#                               href="#collapseContent" aria-expanded="false" aria-controls="collapseContent"></a>#}
