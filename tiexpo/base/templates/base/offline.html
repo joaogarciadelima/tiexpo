@@ -1,0 +1,20 @@
+{% extends 'base/base.html' %}
+{% load static %}
+{% block body %}
+<div class="container">
+    <div class="container">
+        <div class="row pt-3">
+            <div class="col-md-12">
+                <img alt="Logo" src="{% static 'img/Logo.png' %}" class="center-block" style="width: 100%; height: auto;">
+            </div>
+        </div>
+        <div>
+        <p>Oops, you appear to be offline, this app requires an internet connection.</p>
+        </div>
+    </div>
+</div>
+{% endblock body %}
+
+
+
+
