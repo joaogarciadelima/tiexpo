@@ -1,6 +1,9 @@
+from datetime import datetime
+
 from django.db import models
 from django.urls import reverse
-from datetime import datetime
+
+from tiexpo.fabricantes.models import Fabricante
 
 
 class Album(models.Model):
@@ -28,21 +31,10 @@ class Imagem(models.Model):
     album = models.ForeignKey(Album, on_delete=models.CASCADE)
     slug = models.SlugField(unique=True)
     data_publicacao = models.DateField(default=datetime.now)
+    fabricante = models.ForeignKey(Fabricante, on_delete=models.CASCADE, null=True)
 
     def __str__(self):
         return self.titulo
 
     def get_absolute_url(self):
         return reverse('albuns:imagem', kwargs={'slug': self.slug})
-
-    # def get_exibicao(self):
-    #     nome_arquivo = str(self.imagem)
-    #     delimiter = nome_arquivo.find(".JPG")
-    #     nome_arquivo = nome_arquivo[:delimiter] + ".500x500.jpg"
-    #     return nome_arquivo
-    #
-    # def get_thumbnail(self):
-    #     nome_arquivo = str(self.imagem)
-    #     delimiter = nome_arquivo.find(".JPG")
-    #     nome_arquivo = nome_arquivo[:delimiter] + ".125x125.jpg"
-    #     return nome_arquivo
