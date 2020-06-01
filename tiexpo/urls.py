@@ -35,6 +35,7 @@ urlpatterns = [
     path('', include('tiexpo.base.urls')),
     path('albuns/', include('tiexpo.albuns.urls'), name='albuns'),
     path('api/v1/', include('tiexpo.api.urls'), name='api'),
+    path('fabricantes/', include('tiexpo.fabricantes.urls'), name='fabricantes'),
 ]
 
 if settings.DEBUG:

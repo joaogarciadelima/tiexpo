@@ -56,11 +56,24 @@
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
                    aria-haspopup="true" aria-expanded="false">
-                    Imagens por fabricantes
+                    Imagens por Segmento
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                     {% for album in ALBUNS %}
                         <a class="dropdown-item" href="{{ album.get_absolute_url }}">{{ album.titulo }}</a> 
+                        <div class="dropdown-divider"></div>
+                    {% endfor %}
+                </div>
+            </li>
+            <li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                       aria-haspopup="true" aria-expanded="false">
+                        Imagens por fabricantes
+                    </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    {% for fabricante in FABRICANTES %}
+                        <a class="dropdown-item" href="{{ fabricante.get_absolute_url }}">{{ fabricante.nome }}</a> 
                         <div class="dropdown-divider"></div>
                     {% endfor %}
                 </div>
@@ -104,7 +117,7 @@
             </div>
         </div>
     </div>
-    <a href="https://wa.me/553791947997?text=Gostaria%20de%20obter%20mais%20informações%20."
+    <a href="https://wa.me/5537991045923?text=Gostaria%20de%20obter%20mais%20informações%20."
 			style="position:fixed;width:60px;height:60px;bottom:40px;right:40px;background-color:#25d366;color:#FFF;border-radius:50px;text-align:center;font-size:30px;box-shadow: 1px 1px 2px #888;
 		  z-index:1000;" target="_blank">
 			<i style="margin-top:16px" class="fa fa-whatsapp"></i>

@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'tiexpo.albuns',
     'rest_framework',
     'tiexpo.api',
+    'tiexpo.fabricantes',
 ]
 
 REST_FRAMEWORK = {
@@ -76,6 +77,7 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
                 'tiexpo.albuns.context_processors.listar_albuns',
+                'tiexpo.fabricantes.context_processors.listar_fabricantes',
             ],
         },
     },
