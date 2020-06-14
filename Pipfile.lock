@@ -276,10 +276,11 @@
         },
         "codecov": {
             "hashes": [
-                "sha256:2ebd639d8f621aabcce399e475b0302e436cb7e00e7724d1b2224bbf3f215a0c",
-                "sha256:e20e9fd7e530da14a22245862beb43a9fce9a6b998d9bf196c44d0207817b236"
+                "sha256:5bf4e752844566087c287cb7c43522210c28ac5db089005966109f58cbcbe135",
+                "sha256:770efd88c8e2aed346a1bc1a4ead8a055593278b1039c589273dda247d03c9dd",
+                "sha256:d1e44c6563014ad17235c74d9be3ecce053a7bebcea919ee5909265a71bb26e3"
             ],
-            "version": "==2.1.3"
+            "version": "==2.1.6"
         },
         "colorama": {
             "hashes": [
