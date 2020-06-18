@@ -19,25 +19,6 @@
     {#    <link href="{% static 'css/album.css' %}" rel="stylesheet">#}
     <script src="{% static 'js/jquery.min.js' %}"></script>
     <script src="{% static 'js/bootstrap.min.js' %}"></script>
-    <script src="{% static 'js/scripts.js' %}"></script>
-    <script src="{% static 'js/install.js' %}"></script>
-    
-{% comment %} <script>
- if ('serviceWorker' in navigator) {
-    console.log("Will the service worker register?");
-    navigator.serviceWorker.register('service_worker.js')
-      .then(function(reg){
-        console.log("Yes, it did.");
-     }).catch(function(err) {
-       console.log("No it didn't. This happened:", err)
-        console.log("err.message:", err.message)
-    });
- }
-</script> {% endcomment %}
-
-
-
-
 </head>
 <body>
 {#<nav class="navbar navbar-expand-lg navbar-dark bg-dark">#}
@@ -51,12 +32,12 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
               <li class="nav-item">
-        <a class="nav-link" href="{% url 'albuns:imagens' %}">Todas Imagens</a>
+        <a class="nav-link" href="{% url 'albuns:imagens' %}">Todas as Imagens</a>
       </li>
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
                    aria-haspopup="true" aria-expanded="false">
-                    Imagens por Segmento
+                    Por Segmentos
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                     {% for album in ALBUNS %}
@@ -69,7 +50,7 @@
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
                        aria-haspopup="true" aria-expanded="false">
-                        Imagens por fabricantes
+                        Por Fabricantes
                     </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                     {% for fabricante in FABRICANTES %}
@@ -87,7 +68,6 @@
                         {{ user.first_name | default:"Complete seu cadastro" }}
                     </a>
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
-{#                        <a class="dropdown-item" href="{% url 'dashboard:home' %}">Dashboard</a>#}
                         <a class="dropdown-item" href="teste">Perfil</a>
                         <div class="dropdown-divider"></div>
                         <div class="dropdown-item">
@@ -98,7 +78,6 @@
             </ul>
         {% else %}
             <a class="btn btn-light my-2 my-sm-0"
-{#               href="{% url 'login' %}?next={% url 'dashboard:home' %}">Entrar</a>#}
            href="{% url 'login' %}?next=/contas/login/">Entrar</a>
         {% endif %}
     </div>
@@ -132,7 +111,5 @@
         </div>
     </div>
 </footer>
-
-
 </body>
 </html>
