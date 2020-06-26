@@ -4,29 +4,29 @@ import pytest
 from django.urls import reverse
 from model_mommy import mommy
 
-from tiexpo.albuns.models import Imagem, Album
+from tiexpo.catalogos.models import Imagem, Catalogo
 from tiexpo.django_assertions import assert_contains
 
 
 @pytest.fixture
-def albuns(db):
-    return mommy.make(Album, 3)
+def catalogos(db):
+    return mommy.make(Catalogo, 3)
 
 
 @pytest.fixture
-def imagens(albuns):
+def imagens(catalogos):
     imagens = []
-    for album in albuns:
-        imagens.extend(mommy.make(Imagem, 3, album=album))
+    for catalogo in catalogos:
+        imagens.extend(mommy.make(Imagem, 3, catalogo=catalogo))
     return imagens
 
 
 @pytest.fixture
-def resp(client, albuns, imagens, django_user_model):
+def resp(client, catalogos, imagens, django_user_model):
     user = mommy.make(django_user_model)
     client.force_login(user)
     return client.get(reverse(
-        'albuns:indice',),
+        'catalogos:indice',),
         secure=True)
 
 
@@ -38,9 +38,9 @@ def test_indice_disponivel(resp):
     assert resp.status_code == 200
 
 
-def test_titulos(resp, albuns: List[Album]):
-    for album in albuns:
-        assert_contains(resp, album.titulo)
+def test_titulos(resp, catalogos: List[Catalogo]):
+    for catalogo in catalogos:
+        assert_contains(resp, catalogo.titulo)
 
 
 def test_imagens_titulos(resp, imagens: List[Imagem]):

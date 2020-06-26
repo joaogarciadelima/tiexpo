@@ -33,9 +33,8 @@ urlpatterns = [
          name='password_reset_confirm'),
     path('contas/reiniciar/ok', PasswordResetCompleteView.as_view(), name='password_reset_complete'),
     path('', include('tiexpo.base.urls')),
-    path('albuns/', include('tiexpo.albuns.urls'), name='albuns'),
+    path('catalogos/', include('tiexpo.catalogos.urls'), name='albuns'),
     path('api/v1/', include('tiexpo.api.urls'), name='api'),
-    path('fabricantes/', include('tiexpo.fabricantes.urls'), name='fabricantes'),
 ]
 
 if settings.DEBUG:

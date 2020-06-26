@@ -3,10 +3,8 @@ from datetime import datetime
 from django.db import models
 from django.urls import reverse
 
-from tiexpo.fabricantes.models import Fabricante
 
-
-class Album(models.Model):
+class Catalogo(models.Model):
     titulo = models.CharField(max_length=100)
     slug = models.SlugField(unique=True)
 
@@ -14,11 +12,28 @@ class Album(models.Model):
         return self.titulo
 
     def get_absolute_url(self):
-        return reverse('albuns:detalhe', kwargs={'slug': self.slug})
+        return reverse('catalogos:detalhe', kwargs={'slug': self.slug})
 
     class Meta:
         ordering = ('titulo',)
-        verbose_name_plural = 'Albuns'
+        verbose_name = 'Catalogo'
+        verbose_name_plural = 'Catalogos'
+
+
+class Fabricante(models.Model):
+    nome = models.CharField(max_length=100)
+    marca = models.CharField(max_length=64)
+    slug = models.SlugField(unique=True)
+
+    def __str__(self):
+        return self.nome
+
+    def get_absolute_url(self):
+        return reverse('catalogos:fabricantes', kwargs={'slug': self.slug})
+
+    class Meta:
+        ordering = ('nome',)
+        verbose_name_plural = 'Fabricantes'
 
 
 class Imagem(models.Model):
@@ -28,7 +43,7 @@ class Imagem(models.Model):
     titulo = models.CharField(max_length=100)
     imagem = models.ImageField(upload_to='img/imagens')
     descricao = models.TextField(blank=True)
-    album = models.ForeignKey(Album, on_delete=models.CASCADE)
+    catalogo = models.ForeignKey(Catalogo, on_delete=models.CASCADE)
     slug = models.SlugField(unique=True)
     data_publicacao = models.DateField(default=datetime.now)
     fabricante = models.ForeignKey(Fabricante, on_delete=models.CASCADE, null=True)
@@ -37,4 +52,4 @@ class Imagem(models.Model):
         return self.titulo
 
     def get_absolute_url(self):
-        return reverse('albuns:imagem', kwargs={'slug': self.slug})
+        return reverse('catalogos:imagem', kwargs={'slug': self.slug})

@@ -39,10 +39,9 @@ INSTALLED_APPS = [
     'collectfast',
     'django.contrib.staticfiles',
     'tiexpo.base',
-    'tiexpo.albuns',
+    'tiexpo.catalogos',
     'rest_framework',
     'tiexpo.api',
-    'tiexpo.fabricantes',
 ]
 
 REST_FRAMEWORK = {
@@ -76,8 +75,8 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
-                'tiexpo.albuns.context_processors.listar_albuns',
-                'tiexpo.fabricantes.context_processors.listar_fabricantes',
+                'tiexpo.catalogos.context_processors.listar_catalogos',
+                'tiexpo.catalogos.context_processors.listar_fabricantes',
             ],
         },
     },
