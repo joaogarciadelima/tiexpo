@@ -1,8 +1,8 @@
 from django.http import HttpResponse, JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 from rest_framework.parsers import JSONParser
-from tiexpo.albuns.models import Album, Imagem
-from tiexpo.api.serializers import AlbumSerializer, ImagemSerializer
+from tiexpo.catalogos.models import Catalogo, Imagem
+from tiexpo.api.serializers import CatalogoSerializer, ImagemSerializer
 
 
 @csrf_exempt
@@ -13,13 +13,13 @@ def album_list(request):
     :return:
     '''
     if request.method == 'GET':
-        albuns = Album.objects.all()
-        serializer = AlbumSerializer(albuns, many=True)
+        albuns = Catalogo.objects.all()
+        serializer = CatalogoSerializer(albuns, many=True)
         return JsonResponse(serializer.data, safe=False)
 
     elif request.method == 'POST':
         data = JSONParser().parse(request)
-        serializer = AlbumSerializer(data=data)
+        serializer = CatalogoSerializer(data=data)
         if serializer.is_valid():
             serializer.save()
             return JsonResponse(serializer.data, status=201)

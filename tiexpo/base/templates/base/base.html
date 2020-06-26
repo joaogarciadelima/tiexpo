@@ -32,7 +32,7 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
               <li class="nav-item">
-        <a class="nav-link" href="{% url 'albuns:imagens' %}">Todas as Imagens</a>
+        <a class="nav-link" href="{% url 'catalogos:imagens' %}">Todas as Imagens</a>
       </li>
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
@@ -40,8 +40,8 @@
                     Por Segmentos
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    {% for album in ALBUNS %}
-                        <a class="dropdown-item" href="{{ album.get_absolute_url }}">{{ album.titulo }}</a> 
+                    {% for catalogo in CATALOGOS %}
+                        <a class="dropdown-item" href="{{ catalogo.get_absolute_url }}">{{ catalogo.titulo }}</a> 
                         <div class="dropdown-divider"></div>
                     {% endfor %}
                 </div>

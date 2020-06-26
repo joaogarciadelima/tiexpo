@@ -1,26 +1,24 @@
 {% extends 'base/base.html' %}
 {% load static %}
 
-{% block title %}{{album.titulo}}{% endblock title %}
-{% block description %}Página com detalhes do álbum {{album.titulo}}{% endblock description %}
+{% block title %}{{catalogo.titulo}}{% endblock title %}
+{% block description %}Página com detalhes do album {{catalogo.titulo}}{% endblock description %}
 {% block body %}
 <div class="container">
-{% for album in albuns %}
     <div class="row">
         <div class="col-md-12">
-            <h1 class="mt-4 mb-3">{{ album.titulo }}</h1>
+            <h1 class="mt-4 mb-3">{{ catalogo.titulo }}</h1>
             <dl>
                 <dt>Descrição</dt>
-                <dd>{{ album.descricao }}</dd>
+                <dd>{{ catalogo.descricao }}</dd>
             </dl>
-            <h2>Aulas</h2>
+            <h2>Imagens</h2>
                 <ol>
-                    {% for imagem in album.imagens %}
+                    {% for imagem in imagens %}
                         <li><a href="{{ imagem.get_absolute_url }}">{{ imagem.titulo }}</a></li>
                     {% endfor %}
                 </ol>
         </div>
     </div>
-{% endfor %}
 </div>
 {% endblock body %}
