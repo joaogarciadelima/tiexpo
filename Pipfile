@@ -23,6 +23,7 @@ collectfast = "*"
 sentry-sdk = "*"
 djangorestframework = "*"
 pillow = "*"
+django-cors-headers = "*"
 
 [requires]
 python_version = "3.8"
