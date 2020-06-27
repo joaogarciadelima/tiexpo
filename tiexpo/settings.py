@@ -40,9 +40,16 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'tiexpo.base',
     'tiexpo.catalogos',
+    'corsheaders',
     'rest_framework',
     'tiexpo.api',
 ]
+
+CORS_ORIGIN_ALLOW_ALL = True
+
+# CORS_ORIGIN_WHITELIST = [
+#          'http://localhost:3000'
+# ]
 
 REST_FRAMEWORK = {
     # Use Django's standard `django.contrib.auth` permissions,
@@ -53,6 +60,7 @@ REST_FRAMEWORK = {
 }
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
