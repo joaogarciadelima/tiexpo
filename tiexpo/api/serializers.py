@@ -9,9 +9,13 @@ class CatalogoSerializer(serializers.ModelSerializer):
 
 
 class ImagemSerializer(serializers.ModelSerializer):
+    catalogo = serializers.StringRelatedField(read_only=True)
+    fabricante = serializers.StringRelatedField(read_only=True)
+
     class Meta:
         model = Imagem
-        fields = ['id', 'titulo', 'imagem', 'descricao', 'Catalogo', 'slug', 'data_publicacao', 'fabricante']
+        fields = ['id', 'titulo', 'imagem', 'descricao', 'catalogo', 'slug',
+                  'data_publicacao', 'fabricante']
 
 
 class FabricanteSerializer(serializers.ModelSerializer):

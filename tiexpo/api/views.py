@@ -6,15 +6,15 @@ from tiexpo.api.serializers import CatalogoSerializer, ImagemSerializer
 
 
 @csrf_exempt
-def album_list(request):
+def catalogo_list(request):
     '''
-    List all albuns or create new one
+    Lista todos os catalogos ou cria um novo
     :param request:
     :return:
     '''
     if request.method == 'GET':
-        albuns = Catalogo.objects.all()
-        serializer = CatalogoSerializer(albuns, many=True)
+        catalogos = Catalogo.objects.all()
+        serializer = CatalogoSerializer(catalogos, many=True)
         return JsonResponse(serializer.data, safe=False)
 
     elif request.method == 'POST':
