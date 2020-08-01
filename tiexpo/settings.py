@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'tiexpo.catalogos',
     'corsheaders',
     'rest_framework',
+    'rest_framework.authtoken',
     'tiexpo.api',
 ]
 
@@ -56,8 +57,16 @@ REST_FRAMEWORK = {
     # or allow read-only access for unauthenticated users.
     'PAGE_SIZE': 100,
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.LimitOffsetPagination',
+    # 'DEFAULT_PERMISSION_CLASSES': [
+    #     'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
+    # ],
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework.authentication.TokenAuthentication',
+        'rest_framework.authentication.BasicAuthentication',
+        'rest_framework.authentication.SessionAuthentication',
+    ),
     'DEFAULT_PERMISSION_CLASSES': [
-        'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
+        'rest_framework.permissions.IsAuthenticatedOrReadOnly',
     ],
 
 }

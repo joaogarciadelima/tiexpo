@@ -2,9 +2,9 @@ from django.urls import path
 from tiexpo.api import views
 
 urlpatterns = [
-    path('', views.catalogo_list),
-    path('imagens/', views.imagem_list),
-    path('imagens/<int:id>/', views.imagem_detail),
-    path('imagens/catalogos/', views.catalogo_list),
-    # path('imagens/fabricantes/', views.imagem_detail),
+    path('', views.CatalogoList.as_view()),
+    path('imagens/', views.ImageList.as_view()),
+    path('imagens/<int:pk>/', views.ImageDetail.as_view()),
+    path('imagens/catalogos/', views.CatalogoList.as_view()),
+    # path('imagens/catalogos/<int:catalogo_id>', views.highlight),
 ]

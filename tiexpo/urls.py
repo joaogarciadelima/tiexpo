@@ -21,6 +21,7 @@ from django.contrib.auth.views import (
     PasswordResetDoneView,
     PasswordResetView,
 )
+from rest_framework.authtoken import views as auth_views
 
 
 urlpatterns = [
@@ -35,6 +36,8 @@ urlpatterns = [
     path('', include('tiexpo.base.urls')),
     path('catalogos/', include('tiexpo.catalogos.urls'), name='albuns'),
     path('api/v1/', include('tiexpo.api.urls'), name='api'),
+    path('api-token-auth/', auth_views.obtain_auth_token, name='api-token-auth')
+
 ]
 
 if settings.DEBUG:
