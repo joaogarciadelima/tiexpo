@@ -4,58 +4,44 @@
 {% block title %}Todas as imagens{% endblock title %}
 {% block description %}Todas as imagens{% endblock description %}
 {% block body %}
-    <div class="container">
-        <!-- Card -->
-        <div class="card promoting-card">
+<div class="container">
+    <!-- Card -->
+    <div class="card promoting-card">
 
-            <!-- Card content -->
-            <div class="card-body d-flex flex-row">
+        <!-- Card content -->
+        <div class="card-body d-flex flex-row">
 
-                <!-- Avatar -->
-                <img src="{% static 'img/Logo.png' %}" class="rounded-circle mr-3"
-                     height="50px" width="50px" alt="avatar">
+            <!-- Avatar -->
+            <img src="{% static 'img/Logo.png' %}" class="rounded-circle mr-3" height="50px" width="50px" alt="avatar">
 
-                <!-- Content -->
-                <div>
+            <!-- Content -->
+            <div>
 
-                    <!-- Title -->
-                    <h4 class="card-title font-weight-bold mb-2">{{ imagem.titulo }}</h4>
-                    <!-- Subtitle -->
-                    <p class="card-text"><i
-                            class="far fa-clock pr-2"></i>Data da publicação: {{ imagem.data_publicacao |date:"SHORT_DATE_FORMAT" }}</p>
-
-                </div>
+                <!-- Title -->
+                <h4 class="card-title font-weight-bold mb-2">{{ imagem.titulo }}</h4>
+                <!-- Subtitle -->
+                <p class="card-text"><i class="far fa-clock pr-2"></i>Data da publicação:
+                    {{ imagem.data_publicacao |date:"SHORT_DATE_FORMAT" }}</p>
 
             </div>
 
-            <!-- Card image -->
-            <div class="view overlay">
-                <img src="{{ imagem.imagem.url }}" class="card-img-top rounded-5" alt="...">
-                {#                        <a href="#!">#}
-                {#                            <div class="mask rgba-white-slight"></div>#}
-                {#                        </a>#}
+        </div>
+
+        <!-- Card image -->
+        <div class="view overlay">
+            <img src="{{ imagem.imagem.url }}" class="card-img-top rounded-5" alt="...">
+        </div>
+
+        <!-- Card content -->
+        <div class="card-body">
+
+            <div class="collapse-content">
+                <p>{{ imagem.descricao }}</p>
             </div>
 
-                    <!-- Card content -->
-                    <div class="card-body">
+        </div>
 
-                        <div class="collapse-content">
-
-                            <!-- Text -->
-                            <p>{{ imagem.descricao }}</p>
-                            <!-- Button -->
-{#                            <a class="btn btn-flat red-text" data-toggle="collapse"#}
-{#                               href="#collapseContent" aria-expanded="false" aria-controls="collapseContent"></a>#}
-{#                            <i class="fas fa-share-alt text-muted float-right p-1 my-1" data-toggle="tooltip"#}
-{#                               data-placement="top" title="Share this post"></i>#}
-{#                            <i class="fas fa-heart text-muted float-right p-1 my-1 mr-3" data-toggle="tooltip"#}
-{#                               data-placement="top" title="I like it"></i>#}
-
-                        </div>
-
-                    </div>
-
-                </div>
-                <!-- Card -->
     </div>
+    <!-- Card -->
+</div>
 {% endblock body %}

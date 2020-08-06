@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block title %}{{catalogo.titulo}}{% endblock title %}
-{% block description %}Página com detalhes do álbum {{catalogo.titulo}}{% endblock description %}
+{% block description %}Página com detalhes dos catálogos{{catalogo.titulo}}{% endblock description %}
 {% block body %}
 <div class="container">
 {% for catalogo in catalogos %}
@@ -13,7 +13,7 @@
                 <dt>Descrição</dt>
                 <dd>{{ catalogo.descricao }}</dd>
             </dl>
-            <h2>Aulas</h2>
+            <h2>Catálogos</h2>
                 <ol>
                     {% for imagem in catalogo.imagens %}
                         <li><a href="{{ imagem.get_absolute_url }}">{{ imagem.titulo }}</a></li>

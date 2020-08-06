@@ -1,7 +1,8 @@
 from django.http import Http404  # HttpResponse, JsonResponse
 # from django.views.decorators.csrf import csrf_exempt
-from rest_framework import status
+from rest_framework import status, generics, filters
 # from rest_framework.parsers import JSONParser
+# from django.shortcuts import render
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
@@ -88,3 +89,10 @@ class ImageDetail(APIView):
         imagem = self.get_object(pk)
         imagem.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
+
+
+class ImageApiView(generics.ListCreateAPIView):
+    search_fields = ['titulo', 'descricao', 'catalogo__titulo', 'fabricante__nome']
+    filter_backends = [filters.SearchFilter]
+    queryset = Imagem.objects.all()
+    serializer_class = ImagemSerializer
