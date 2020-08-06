@@ -1,5 +1,6 @@
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render
+
 from tiexpo.catalogos import facade
 
 
@@ -25,6 +26,13 @@ def imagem(request, slug):
 @login_required
 def imagens(request):
     imagens = {'imagens': facade.listar_todas_imagens()}
+    return render(request, 'catalogos/imagens.html', imagens)
+
+
+@login_required
+def procurar_imagens(request):
+    search = request.GET.get('search')
+    imagens = {'imagens': facade.listar_todas_imagens(search)}
     return render(request, 'catalogos/imagens.html', imagens)
 
 

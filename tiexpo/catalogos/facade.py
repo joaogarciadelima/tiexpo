@@ -2,7 +2,8 @@ from typing import List
 
 from django.db.models import Prefetch
 
-from tiexpo.catalogos.models import Catalogo, Imagem, Fabricante
+from tiexpo.catalogos.models import Catalogo, Fabricante, Imagem
+from django.contrib.postgres.search import SearchVector
 
 
 def listar_catalogos_ordenados() -> List[Catalogo]:
@@ -32,8 +33,14 @@ def listar_catalogos_com_imagens():
     ).all()
 
 
-def listar_todas_imagens():
-    return list(Imagem.objects.all())
+def listar_todas_imagens(filter=None):
+
+    if filter:
+        return list(Imagem.objects.annotate(
+            search=SearchVector('titulo', 'descricao', 'catalogo__titulo', 'fabricante__nome'),
+            ).filter(search=filter))
+    else:
+        return list(Imagem.objects.all())
 
 
 # fabricantes
