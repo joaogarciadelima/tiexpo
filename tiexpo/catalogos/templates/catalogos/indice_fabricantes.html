@@ -1,0 +1,36 @@
+{% extends 'base/base.html' %}
+{% load static %}
+
+{% block title %}Fabricantes{% endblock title %}
+{% block description %}Página com indice dos fabricantes representados pela Tiê Representações{% endblock description %}
+{% block body %}
+<div class="container mt-5">
+
+{% for fabricante in fabricantes %}
+    <div class="list-group">
+        <a href="{{ fabricante.get_absolute_url }}" class="list-group-item list-group-item-action flex-column align-items-start">
+            <div class="d-flex w-100 justify-content-between">
+              <h5 class="mb-1">Fabricante: {{ fabricante.nome }}</h5>
+              <!-- <small>3 days ago</small> -->
+            </div>
+            <p class="mb-1">Marca: {{ fabricante.marca }}</p>
+            <!-- <small>Donec id elit non mi porta.</small> -->
+          </a>
+        <!-- <div class="col-md-12">
+            
+                <ol>
+                    <li><a href="{{ fabricante.get_absolute_url }}">{{ fabricante.nome }}</a></li>
+                </ol>
+        </div> -->
+    </div>
+{% endfor %}
+</div>
+{% endblock body %}
+
+<!-- 
+<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+    {% for fabricante in FABRICANTES %}
+    <a class="dropdown-item" href="{{ fabricante.get_absolute_url }}">{{ fabricante.nome }}</a>
+    <div class="dropdown-divider"></div>
+    {% endfor %}
+</div> -->

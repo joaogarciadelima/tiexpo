@@ -53,6 +53,9 @@
                 <li class="nav-item">
                     <a class="nav-link" href="{% url 'catalogos:imagens' %}">Todas as Imagens</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'catalogos:indice_fabricantes' %}">Fabricantes</a>
+                </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -66,18 +69,19 @@
                     </div>
                 </li>
                 <li>
-                <li class="nav-item dropdown">
+                <!-- <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Por Fabricantes
                     </a>
+                    
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                         {% for fabricante in FABRICANTES %}
                         <a class="dropdown-item" href="{{ fabricante.get_absolute_url }}">{{ fabricante.nome }}</a>
                         <div class="dropdown-divider"></div>
                         {% endfor %}
                     </div>
-                </li>
+                </li> -->
             </ul>
             <form action="{% url 'catalogos:search' %}" class="form-inline my-2 my-lg-0">
                 <input type="text" class="form-control mr-sm-2" placeholder="Pesquisar" aria-label="Search" name="search" id="search" autofocus="">

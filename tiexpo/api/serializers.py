@@ -22,3 +22,19 @@ class FabricanteSerializer(serializers.ModelSerializer):
     class Meta:
         model = Fabricante
         fields = ['id', 'nome', 'marca']
+
+
+class CatalogoImagensSerializer(serializers.ModelSerializer):
+    imagens_catalogos = ImagemSerializer(many=True, read_only=True)
+
+    class Meta:
+        model = Catalogo
+        fields = ['id', 'titulo', 'imagens_catalogos']
+
+
+class FabricanteImagensSerializer(serializers.ModelSerializer):
+    imagens_fabricantes = ImagemSerializer(many=True, read_only=True)
+
+    class Meta:
+        model = Fabricante
+        fields = ['id', 'nome', 'marca', 'imagens_fabricantes']
