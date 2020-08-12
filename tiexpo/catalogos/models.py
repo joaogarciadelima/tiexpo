@@ -43,10 +43,10 @@ class Imagem(models.Model):
     titulo = models.CharField(max_length=100)
     imagem = models.ImageField(upload_to='img/imagens')
     descricao = models.TextField(blank=True)
-    catalogo = models.ForeignKey(Catalogo, on_delete=models.CASCADE)
+    catalogo = models.ForeignKey(Catalogo, related_name="imagens_catalogos", on_delete=models.CASCADE)
     slug = models.SlugField(unique=True)
     data_publicacao = models.DateField(default=datetime.now)
-    fabricante = models.ForeignKey(Fabricante, on_delete=models.CASCADE, null=True)
+    fabricante = models.ForeignKey(Fabricante, related_name="imagens_fabricantes", on_delete=models.CASCADE, null=True)
 
     def __str__(self):
         return self.titulo

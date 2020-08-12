@@ -19,7 +19,7 @@ def encontrar_catalogo(slug: str) -> Catalogo:
 
 
 def listar_imagens_de_catalogo_ordenadas(catalogo: Catalogo):
-    return list(catalogo.imagem_set.order_by('titulo').all())
+    return list(catalogo.imagens_catalogos.order_by('titulo').all())
 
 
 def encontrar_imagem(slug: str) -> Imagem:
@@ -29,7 +29,7 @@ def encontrar_imagem(slug: str) -> Imagem:
 def listar_catalogos_com_imagens():
     imagens_ordenadas = Imagem.objects.order_by('titulo')
     return Catalogo.objects.order_by('titulo').prefetch_related(
-        Prefetch('imagem_set', queryset=imagens_ordenadas, to_attr='imagens')
+        Prefetch('imagens_catalogos', queryset=imagens_ordenadas, to_attr='imagens')
     ).all()
 
 
@@ -57,7 +57,7 @@ def encontrar_fabricante(slug: str) -> Fabricante:
 
 
 def listar_imagens_de_fabricantes_ordenadas(fabricante: Fabricante):
-    return list(fabricante.imagem_set.order_by('fabricante').all())
+    return list(fabricante.imagens_fabricantes.order_by('fabricante').all())
 
 
 def encontrar_imagem_fabricante(slug: str) -> Imagem:
@@ -67,5 +67,5 @@ def encontrar_imagem_fabricante(slug: str) -> Imagem:
 def listar_fabricantes_com_imagens():
     imagens_ordenadas = Imagem.objects.order_by('titulo')
     return Fabricante.objects.order_by('nome').prefetch_related(
-        Prefetch('imagem_set', queryset=imagens_ordenadas, to_attr='imagens')
+        Prefetch('imagens_fabricantes', queryset=imagens_ordenadas, to_attr='imagens')
     ).all()

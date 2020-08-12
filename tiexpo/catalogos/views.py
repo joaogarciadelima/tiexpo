@@ -39,7 +39,7 @@ def procurar_imagens(request):
 @login_required
 def indice_fabricantes(request):
     ctx = {'fabricantes': facade.listar_fabricantes_com_imagens()}
-    return render(request, 'catalogos/indice.html', ctx)
+    return render(request, 'catalogos/indice_fabricantes.html', ctx)
 
 
 @login_required
