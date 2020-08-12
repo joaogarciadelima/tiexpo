@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'tiexpo.base',
     'tiexpo.catalogos',
     'corsheaders',
+    'django_extensions',
     'rest_framework',
     'rest_framework.authtoken',
     'tiexpo.api',

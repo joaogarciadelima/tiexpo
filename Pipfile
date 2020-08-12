@@ -24,6 +24,8 @@ sentry-sdk = "*"
 djangorestframework = "*"
 pillow = "*"
 django-cors-headers = "*"
+django-extensions = "*"
+ipython = "*"
 
 [requires]
 python_version = "3.8"

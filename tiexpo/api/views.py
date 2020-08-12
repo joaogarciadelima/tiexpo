@@ -6,8 +6,9 @@ from rest_framework import status, generics, filters
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
-from tiexpo.api.serializers import CatalogoSerializer, ImagemSerializer
-from tiexpo.catalogos.models import Catalogo, Imagem
+from tiexpo.api.serializers import CatalogoSerializer, FabricanteSerializer, ImagemSerializer
+from tiexpo.api.serializers import CatalogoImagensSerializer, FabricanteImagensSerializer
+from tiexpo.catalogos.models import Catalogo, Imagem, Fabricante
 
 
 class CatalogoList(APIView):
@@ -39,6 +40,28 @@ class CatalogoList(APIView):
     #     return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
+class FabricanteList(APIView):
+    """[summary]
+
+    Api para retornar os fabricantes cadastrados no sistema
+
+    Retrieve details of manufacters
+
+    """
+    # permission_classes = [permissions.IsAuthenticated]
+
+    def get_object(self, pk):
+        try:
+            return Fabricante.objects.get(pk=pk)
+        except Fabricante.DoesNotExist:
+            raise Http404
+
+    def get(self, request, format=None):
+        fabricantes = Fabricante.objects.all()
+        serializer = FabricanteSerializer(fabricantes, many=True)
+        return Response(serializer.data)
+
+
 class ImageList(APIView):
     """[summary]
 
@@ -60,6 +83,38 @@ class ImageList(APIView):
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
+class ImageCalalogDetail(APIView):
+    """
+    Retrieve
+    """
+    def get_object(self, pk):
+        try:
+            return Catalogo.objects.get(pk=pk)
+        except Catalogo.DoesNotExist:
+            raise Http404
+
+    def get(self, request, pk, format=None):
+        catalogo = self.get_object(pk)
+        serializer = CatalogoImagensSerializer(instance=catalogo)
+        return Response(serializer.data)
+
+
+class ImageFabricanteDetail(APIView):
+    """
+    Retrieve
+    """
+    def get_object(self, pk):
+        try:
+            return Fabricante.objects.get(pk=pk)
+        except Catalogo.DoesNotExist:
+            raise Http404
+
+    def get(self, request, pk, format=None):
+        fabricante = self.get_object(pk)
+        serializer = FabricanteImagensSerializer(instance=fabricante)
+        return Response(serializer.data)
 
 
 class ImageDetail(APIView):
