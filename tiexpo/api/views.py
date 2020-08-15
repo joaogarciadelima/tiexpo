@@ -1,6 +1,6 @@
 from django.http import Http404  # HttpResponse, JsonResponse
 # from django.views.decorators.csrf import csrf_exempt
-from rest_framework import status, generics, filters
+from rest_framework import generics, filters
 # from rest_framework.parsers import JSONParser
 # from django.shortcuts import render
 from rest_framework.response import Response
@@ -77,12 +77,12 @@ class ImageList(APIView):
         serializer = ImagemSerializer(imagens, many=True)
         return Response(serializer.data)
 
-    def post(self, request, format=None):
-        serializer = ImagemSerializer(data=request.data)
-        if serializer.is_valid():
-            serializer.save()
-            return Response(serializer.data, status=status.HTTP_201_CREATED)
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    # def post(self, request, format=None):
+    #     serializer = ImagemSerializer(data=request.data)
+    #     if serializer.is_valid():
+    #         serializer.save()
+    #         return Response(serializer.data, status=status.HTTP_201_CREATED)
+    #     return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
 class ImageCalalogDetail(APIView):
@@ -132,18 +132,18 @@ class ImageDetail(APIView):
         serializer = ImagemSerializer(imagem)
         return Response(serializer.data)
 
-    def put(self, request, pk, format=None):
-        imagem = self.get_object(pk)
-        serializer = ImagemSerializer(imagem, data=request.data)
-        if serializer.is_valid():
-            serializer.save()
-            return Response(serializer.data)
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    # def put(self, request, pk, format=None):
+    #     imagem = self.get_object(pk)
+    #     serializer = ImagemSerializer(imagem, data=request.data)
+    #     if serializer.is_valid():
+    #         serializer.save()
+    #         return Response(serializer.data)
+    #     return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
-    def delete(self, request, pk, format=None):
-        imagem = self.get_object(pk)
-        imagem.delete()
-        return Response(status=status.HTTP_204_NO_CONTENT)
+    # def delete(self, request, pk, format=None):
+    #     imagem = self.get_object(pk)
+    #     imagem.delete()
+    #     return Response(status=status.HTTP_204_NO_CONTENT)
 
 
 class ImageApiView(generics.ListCreateAPIView):

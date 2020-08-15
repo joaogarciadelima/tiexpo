@@ -19,7 +19,7 @@ def test_title(resp):
 
 
 def test_home_link(resp):
-    assert_contains(resp, f'href="{reverse("base:home")}">Tie Expo APP')
+    assert_contains(resp, f'href="{reverse("base:home")}">Tiê Representações')
 
 
 def test_footer_fone(resp):
