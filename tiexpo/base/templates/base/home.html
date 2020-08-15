@@ -1,18 +1,102 @@
 {% extends 'base/base.html' %}
 {% load static %}
 {% block body %}
-<div class="container">
-    <div class="container">
-        <div class="row pt-3">
-            <div class="col-md-12">
-                <img alt="Logo" src="{% static 'img/Logo.png' %}" class="center-block" style="width: 100%; height: auto;">
+<div class="container-fluid">
+    <div class="container-fluid intro">
+        <div class="container">
+            <div class="logo">
+                <img alt="Logo" src="{% static 'img/logo_sem_fundo.png' %}">
+
+                <P>
+                    <strong>Tiê Representações e <br> Assessoria para Lojistas</strong>
+                </P>
+
             </div>
-            {% comment %} <iframe width="560" height="315" src="https://www.youtube.com/embed/TnwIcB6LbOY" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> {% endcomment %}
         </div>
     </div>
+    <section id="encontra" class="section-full">
+        <div class="text-center mb-5 mt-5">
+
+            <h1>
+                Aqui você encontra
+            </h1>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm">
+                    <div class="encontra">
+                        <a href="#assessoria"><img src="{% static 'img/Assessoria.svg' %}"></a>
+                    </div>
+                    <h2 class="solucoes-p">
+                        Assessoria
+                    </h2>
+                    <p>
+                        A Tiê Representações oferece apoio de
+                        profissionais que
+                        acompanham o lançamento e giro de
+                        produtos com visitas periódicas ao
+                        cliente,
+                        visando integrar lojistas e fabricantes de
+                        maneira segura, rápida com excelente
+                        resultado nos negócios. Para receber os
+                        clientes, com instalações planejadas
+                        que proporcionam conforto e facilidade
+                        na escolha das marcas.
+                    </p>
+                </div>
+                <div class="col-sm">
+                    <a href="#representacao"><img src="{% static 'img/Representacao.svg' %}"></a>
+                    <h2 class="solucoes-p">
+                        Representação
+                    </h2>
+                    <p>
+                        Com mais de 20 anos de experiência na
+                        representação das
+                        melhores marcas de Nova Serrana e
+                        região. A Tiê Representações oferece
+                        produtos de qualidade, com preços
+                        diferenciados que atendem o perfil de
+                        cada público alvo. Possui todas as
+                        condições necessárias para a
+                        comercialização de calçados e uma
+                        equipe treinada que efetua o
+                        acompanhamento dos pedidos nas
+                        fábricas, da programação á entrega nas
+                        lojas.
+                    </p>
+                </div>
+                <div class="col-sm">
+                    <img src="{% static 'img/design.svg' %}">
+                    <h2 class="solucoes-p">
+                        Design
+                    </h2>
+                    <p>
+                        Desenvolvimento do design de calçados
+                        com profissionais qualificados, baseado
+                        em estudos de mercado e tendências,
+                        além de consultoria na indicação de
+                        produtos que podem ser desenvolvidos
+                        com a marca de identidade visual de
+                        cada cliente.
+                    </p>
+                </div>
+                <div class="col-sm">
+                    <img src="{% static 'img/location.svg' %}">
+                    <h2 class="solucoes-p">
+                        Abrangência
+                    </h2>
+                    <p>
+                        A Tiê Representações possui entre seus
+                        clientes os mais conceituados lojistas
+                        calçadistas, e por isso está presente em
+                        mais de 700 pontos de vendas
+                        espalhados por todo o Brasil. A qualidade
+                        da nossa completa assessoria ao lojista
+                        se confirma no sucesso dessas grandes
+                        parcerias.
+                    </p>
+                </div>
+    </section>
+
 </div>
 {% endblock body %}
-
-
-
-
