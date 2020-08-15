@@ -26,20 +26,13 @@ img{
 .navbar-brand{
   max-width: 50%;
 }
-<<<<<<< HEAD
 
-=======
->>>>>>> d4b17042faacfb0d02c557554b3357b7b3ee4591
 .intro {
       width: 100%;
       height: 100vh;
       padding: 100px 0;
       color: white;
-<<<<<<< HEAD
-      background: url("static/img/background_home.png") no-repeat bottom center scroll;
-=======
       background: url("/static/img/background_home.png") no-repeat bottom center scroll;
->>>>>>> d4b17042faacfb0d02c557554b3357b7b3ee4591
       background-position: 30% 45%;
       background-color: grey;
       background-size: cover;
