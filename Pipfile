@@ -26,6 +26,7 @@ pillow = "*"
 django-cors-headers = "*"
 django-extensions = "*"
 ipython = "*"
+sendgrid = "*"
 
 [requires]
 python_version = "3.8"
