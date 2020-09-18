@@ -29,3 +29,7 @@ def test_footer_fone(resp):
 def test_footer_email(resp):
     assert_contains(resp, '<a href="mailto:contato@tierepresentacoes.com.br" class="text-light">'
                           'contato@tierepresentacoes.com.br</a>')
+
+
+def test_footer_privacy(resp):
+    assert_contains(resp, f'<a href="{reverse("base:privacy")}" class="text-light">Política de Privacidade</a>')
