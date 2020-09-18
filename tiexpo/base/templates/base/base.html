@@ -10,20 +10,25 @@
     <title>{% block title %}TieExpo{% endblock %}</title>
     <!-- Google Tag Manager -->
     <script>(function (w, d, s, l, i) {
-            w[l] = w[l] || []; w[l].push({
-                'gtm.start':
-                    new Date().getTime(), event: 'gtm.js'
-            }); var f = d.getElementsByTagName(s)[0],
-                j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
-                    'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
-        })(window, document, 'script', 'dataLayer', 'GTM-KJ3VDPR');</script>
+        w[l] = w[l] || [];
+        w[l].push({
+            'gtm.start':
+                new Date().getTime(), event: 'gtm.js'
+        });
+        var f = d.getElementsByTagName(s)[0],
+            j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : '';
+        j.async = true;
+        j.src =
+            'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+        f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-KJ3VDPR');</script>
     <!-- End Google Tag Manager -->
-    <meta name="description" content="Tiê Representações e assessoria para lojistas" />
+    <meta name="description" content="Tiê Representações e assessoria para lojistas"/>
     <meta name="keywords"
-        content="Tie, Tiê representações, calçados, atacado, representação, assessoria, sapatos, Nova Serrana, nova serrana" />
+          content="Tie, Tiê representações, calçados, atacado, representação, assessoria, sapatos, Nova Serrana, nova serrana"/>
     <meta name="author" content="João Garcia">
-    <meta name="theme-color" content="#135594" />
-    <link rel="icon" type="'image/png" href="{% static 'img/favicon-16x16.png' %}" />
+    <meta name="theme-color" content="#135594"/>
+    <link rel="icon" type="'image/png" href="{% static 'img/favicon-16x16.png' %}"/>
     <link rel="manifest" href="{% static 'manifest.json' %}">
     <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
     <link href="{% static 'css/style.css' %}" rel="stylesheet">
@@ -37,38 +42,41 @@
 </head>
 
 <body>
-    {#<nav class="navbar navbar-expand-lg navbar-dark bg-dark">#}
-    <!-- Google Tag Manager (noscript) -->
-    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KJ3VDPR" height="0" width="0"
-            style="display:none;visibility:hidden"></iframe></noscript>
-    <!-- End Google Tag Manager (noscript) -->
-    <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #135594;"> <!--style="background-color: #135594; text"-->
-        <a class="navbar-brand" href="{% url 'base:home' %}">Tiê Representações</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+{#<nav class="navbar navbar-expand-lg navbar-dark bg-dark">#}
+<!-- Google Tag Manager (noscript) -->
+<noscript>
+    <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KJ3VDPR" height="0" width="0"
+            style="display:none;visibility:hidden"></iframe>
+</noscript>
+<!-- End Google Tag Manager (noscript) -->
+<nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #135594;">
+    <!--style="background-color: #135594; text"-->
+    <a class="navbar-brand" href="{% url 'base:home' %}">Tiê Representações</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="{% url 'catalogos:imagens' %}">Todas as Imagens</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{% url 'catalogos:indice_fabricantes' %}">Fabricantes</a>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Por Segmentos
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        {% for catalogo in CATALOGOS %}
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'catalogos:imagens' %}">Todas as Imagens</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'catalogos:indice_fabricantes' %}">Fabricantes</a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Por Segmentos
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    {% for catalogo in CATALOGOS %}
                         <a class="dropdown-item" href="{{ catalogo.get_absolute_url }}">{{ catalogo.titulo }}</a>
                         <div class="dropdown-divider"></div>
-                        {% endfor %}
-                    </div>
-                </li>
-                <li>
+                    {% endfor %}
+                </div>
+            </li>
+            <li>
                 <!-- <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -82,19 +90,25 @@
                         {% endfor %}
                     </div>
                 </li> -->
-            </ul>
-            <form action="{% url 'catalogos:search' %}" class="form-inline my-2 my-lg-0">
-                <input type="text" class="form-control mr-sm-2" placeholder="Pesquisar" aria-label="Search" name="search" id="search" autofocus="">
-                <button class="btn btn-outline-light my-2 my-sm-0" id="btn_search"  type="submit"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-search" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                    <path fill-rule="evenodd" d="M10.442 10.442a1 1 0 0 1 1.415 0l3.85 3.85a1 1 0 0 1-1.414 1.415l-3.85-3.85a1 1 0 0 1 0-1.415z"/>
-                    <path fill-rule="evenodd" d="M6.5 12a5.5 5.5 0 1 0 0-11 5.5 5.5 0 0 0 0 11zM13 6.5a6.5 6.5 0 1 1-13 0 6.5 6.5 0 0 1 13 0z"/>
-                  </svg></button>
-            </form>
-            {% if user.is_authenticated %}
+        </ul>
+        <form action="{% url 'catalogos:search' %}" class="form-inline my-2 my-lg-0">
+            <input type="text" class="form-control mr-sm-2" placeholder="Pesquisar" aria-label="Search" name="search"
+                   id="search" autofocus="">
+            <button class="btn btn-outline-light my-2 my-sm-0" id="btn_search" type="submit">
+                <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-search" fill="currentColor"
+                     xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd"
+                          d="M10.442 10.442a1 1 0 0 1 1.415 0l3.85 3.85a1 1 0 0 1-1.414 1.415l-3.85-3.85a1 1 0 0 1 0-1.415z"/>
+                    <path fill-rule="evenodd"
+                          d="M6.5 12a5.5 5.5 0 1 0 0-11 5.5 5.5 0 0 0 0 11zM13 6.5a6.5 6.5 0 1 1-13 0 6.5 6.5 0 0 1 13 0z"/>
+                </svg>
+            </button>
+        </form>
+        {% if user.is_authenticated %}
             <ul class="navbar-nav ">
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarCourses" role="button" data-toggle="dropdown"
-                        aria-haspopup="true" aria-expanded="false">
+                       aria-haspopup="true" aria-expanded="false">
                         {{ user.first_name | default:"Complete seu cadastro" }}
                     </a>
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
@@ -106,39 +120,49 @@
                     </div>
                 </li>
             </ul>
-            {% else %}
+        {% else %}
             <a class="btn btn-light my-2 my-sm-0" href="{% url 'login' %}?next=/contas/login/">Entrar</a>
-            {% endif %}
+        {% endif %}
+    </div>
+</nav>
+{% block body %}{% endblock body %}
+<footer class="main-footer mt-5 pt-4 text-light">
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <h3>Entre em contato</h3>
+                <address class="mb-2">
+                    <a href="tel:+553732289500" class="text-light">+55 (37)3228-9500</a>
+
+                    </br>
+                    <a href="mailto:contato@tierepresentacoes.com.br" class="text-light">contato@tierepresentacoes.com.br</a>
+                </address>
+            </div>
         </div>
-    </nav>
-    {% block body %}{% endblock body %}
-    <footer class="main-footer mt-5 pt-4 text-light">
-        <div class="container">
+    </div>
+    <a href="https://wa.me/5537991045923?text=Gostaria%20de%20obter%20mais%20informações%20."
+       style="position:fixed;width:60px;height:60px;bottom:40px;right:40px;background-color:#25d366;color:#FFF;border-radius:50px;text-align:center;font-size:30px;box-shadow: 1px 1px 2px #888;z-index:1000;"
+       target="_blank">
+        <i style="margin-top:16px" class="fa fa-whatsapp"></i>
+    </a>
+    <div class="rights pb-4 text-light">
+        <div class="container mb-5">
             <div class="row">
                 <div class="col">
-                    <h3>Entre em contato</h3>
-                    <address class="mb-2">
-                        <a href="tel:+553732289500" class="text-light">+55 (37)3228-9500</a>
+                    {% now 'Y' %} Tiê Representações e Assessoria. Todos os direitos reservados.
+                </div>
+            </div>
+        </div>
+        <div class="container mb-5">
+            <div class="row">
+                <div class="col">
+                    <a href="{% url 'base:privacy' %}" class="text-light">Política de Privacidade</a>
+                </div>
 
-                        </br>
-                        <a href="mailto:contato@tierepresentacoes.com.br" class="text-light">contato@tierepresentacoes.com.br</a>
-                    </address>
-                </div>
             </div>
         </div>
-        <a href="https://wa.me/5537991045923?text=Gostaria%20de%20obter%20mais%20informações%20." style="position:fixed;width:60px;height:60px;bottom:40px;right:40px;background-color:#25d366;color:#FFF;border-radius:50px;text-align:center;font-size:30px;box-shadow: 1px 1px 2px #888;z-index:1000;" target="_blank">
-            <i style="margin-top:16px" class="fa fa-whatsapp"></i>
-        </a>
-        <div class="rights pb-4 text-light">
-            <div class="container mb-5">
-                <div class="row">
-                    <div class="col">
-                        {% now 'Y' %} Tiê Representações e Assessoria. Todos os direitos reservados.
-                    </div>
-                </div>
-            </div>
-        </div>
-    </footer>
+    </div>
+</footer>
 </body>
 
 </html>
