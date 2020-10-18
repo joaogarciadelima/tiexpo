@@ -1,6 +1,6 @@
 import pytest
 from django.urls import reverse
-from model_mommy import mommy
+from model_bakery import baker
 
 
 @pytest.fixture
@@ -14,7 +14,7 @@ def test_login_form_page(resp):
 
 @pytest.fixture
 def usuario(db, django_user_model):
-    usuario_modelo = mommy.make(django_user_model)
+    usuario_modelo = baker.make(django_user_model)
     senha = 'senha'
     usuario_modelo.set_password(senha)
     usuario_modelo.save()
@@ -29,4 +29,4 @@ def resp_post(client, usuario):
 
 def test_login_redirect(resp_post):
     assert resp_post.status_code == 302
-    assert resp_post.url == reverse('base:home')
+    assert resp_post.url == reverse('catalogos:destaques')

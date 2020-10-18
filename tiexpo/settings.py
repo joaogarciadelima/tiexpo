@@ -26,8 +26,9 @@ AUTH_USER_MODEL = 'base.User'
 
 LOGIN_URL = '/contas/login/'
 
-LOGIN_REDIRECT_URL = LOGOUT_REDIRECT_URL = '/'
-# '/albuns/imagens/'
+LOGIN_REDIRECT_URL = '/catalogos/imagens/lancamentos/'
+LOGOUT_REDIRECT_URL = '/'
+
 # Application definition
 
 INSTALLED_APPS = [

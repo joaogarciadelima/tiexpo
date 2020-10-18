@@ -5,6 +5,7 @@ app_name = 'catalogos'
 urlpatterns = [
     path('<slug:slug>', views.detalhe, name='detalhe'),
     path('imagens/', views.imagens, name='imagens'),
+    path('imagens/lancamentos/', views.imagens_destaques, name='destaques'),
     path('imagens/<slug:slug>', views.imagem, name='imagem'),
     path('', views.indice, name='indice'),
     path('search/', views.procurar_imagens, name='search'),

@@ -2,7 +2,7 @@ from typing import List
 
 import pytest
 from django.urls import reverse
-from model_mommy import mommy
+from model_bakery import baker
 
 from tiexpo.catalogos.models import Imagem, Catalogo
 from tiexpo.django_assertions import assert_contains
@@ -10,20 +10,20 @@ from tiexpo.django_assertions import assert_contains
 
 @pytest.fixture
 def catalogos(db):
-    return mommy.make(Catalogo, 3)
+    return baker.make(Catalogo, 3)
 
 
 @pytest.fixture
 def imagens(catalogos):
     imagens = []
     for catalogo in catalogos:
-        imagens.extend(mommy.make(Imagem, 3, catalogo=catalogo))
+        imagens.extend(baker.make(Imagem, 3, catalogo=catalogo))
     return imagens
 
 
 @pytest.fixture
 def resp(client, catalogos, imagens, django_user_model):
-    user = mommy.make(django_user_model)
+    user = baker.make(django_user_model)
     client.force_login(user)
     return client.get(reverse(
         'catalogos:indice',),

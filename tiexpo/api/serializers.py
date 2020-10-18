@@ -15,7 +15,7 @@ class ImagemSerializer(serializers.ModelSerializer):
     class Meta:
         model = Imagem
         fields = ['id', 'titulo', 'imagem', 'descricao', 'catalogo', 'slug',
-                  'data_publicacao', 'fabricante']
+                  'data_publicacao', 'fabricante', 'destaque']
 
 
 class FabricanteSerializer(serializers.ModelSerializer):

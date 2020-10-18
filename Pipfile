@@ -10,7 +10,7 @@ pytest = "*"
 django-debug-toolbar = "*"
 pytest-cov = "*"
 codecov = "*"
-model-mommy = "*"
+model-bakery = "*"
 
 [packages]
 django = "*"
