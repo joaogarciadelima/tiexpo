@@ -1,6 +1,6 @@
 import pytest
 from django.urls import reverse
-from model_mommy import mommy
+from model_bakery import baker
 
 from tiexpo.django_assertions import assert_contains
 from tiexpo.catalogos.models import Catalogo
@@ -8,7 +8,7 @@ from tiexpo.catalogos.models import Catalogo
 
 @pytest.fixture
 def catalogos(db):
-    return mommy.make(Catalogo, 2)
+    return baker.make(Catalogo, 2)
 
 
 @pytest.fixture

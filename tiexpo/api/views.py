@@ -27,7 +27,7 @@ class CatalogoList(APIView):
         except Catalogo.DoesNotExist:
             raise Http404
 
-    def get(self, request, format=None):
+    def get(self, request):
         catalogos = Catalogo.objects.all()
         serializer = CatalogoSerializer(catalogos, many=True)
         return Response(serializer.data)
@@ -56,7 +56,7 @@ class FabricanteList(APIView):
         except Fabricante.DoesNotExist:
             raise Http404
 
-    def get(self, request, format=None):
+    def get(self, request):
         fabricantes = Fabricante.objects.all()
         serializer = FabricanteSerializer(fabricantes, many=True)
         return Response(serializer.data)
@@ -72,7 +72,7 @@ class ImageList(APIView):
     """
     # permission_classes = [permissions.IsAuthenticated]
 
-    def get(self, request, format=None):
+    def get(self, request):
         imagens = Imagem.objects.all()
         serializer = ImagemSerializer(imagens, many=True)
         return Response(serializer.data)
@@ -95,7 +95,7 @@ class ImageCalalogDetail(APIView):
         except Catalogo.DoesNotExist:
             raise Http404
 
-    def get(self, request, pk, format=None):
+    def get(self, request, pk):
         catalogo = self.get_object(pk)
         serializer = CatalogoImagensSerializer(instance=catalogo)
         return Response(serializer.data)
@@ -111,7 +111,7 @@ class ImageFabricanteDetail(APIView):
         except Catalogo.DoesNotExist:
             raise Http404
 
-    def get(self, request, pk, format=None):
+    def get(self, request, pk):
         fabricante = self.get_object(pk)
         serializer = FabricanteImagensSerializer(instance=fabricante)
         return Response(serializer.data)
@@ -151,3 +151,19 @@ class ImageApiView(generics.ListCreateAPIView):
     filter_backends = [filters.SearchFilter]
     queryset = Imagem.objects.all()
     serializer_class = ImagemSerializer
+
+
+class ImageDestaquesList(APIView):
+    """[summary]
+
+    Api para retornar as imagens em destaque no sistema
+
+    Retrieve details of images
+
+    """
+    # permission_classes = [permissions.IsAuthenticated]
+
+    def get(self, request):
+        imagens = Imagem.objects.filter(destaque=True)
+        serializer = ImagemSerializer(imagens, many=True)
+        return Response(serializer.data)
