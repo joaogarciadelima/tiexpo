@@ -8,5 +8,6 @@ urlpatterns = [
     path('imagens/catalogos/', views.CatalogoList.as_view()),
     path('imagens/catalogos/<int:pk>', views.ImageCalalogDetail.as_view()),
     path('imagens/fabricantes/', views.FabricanteList.as_view()),
-    path('imagens/fabricantes/<int:pk>', views.ImageFabricanteDetail.as_view())
+    path('imagens/fabricantes/<int:pk>', views.ImageFabricanteDetail.as_view()),
+    path('imagens/destaques/', views.ImageDestaquesList.as_view())
 ]

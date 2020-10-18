@@ -34,7 +34,6 @@ def listar_catalogos_com_imagens():
 
 
 def listar_todas_imagens(filter=None):
-
     if filter:
         return list(Imagem.objects.annotate(
             search=SearchVector('titulo', 'descricao', 'catalogo__titulo', 'fabricante__nome'),
@@ -69,3 +68,7 @@ def listar_fabricantes_com_imagens():
     return Fabricante.objects.order_by('nome').prefetch_related(
         Prefetch('imagens_fabricantes', queryset=imagens_ordenadas, to_attr='imagens')
     ).all()
+
+
+def listar_destaques(destaque=True):
+    return list(Imagem.objects.filter(destaque=destaque))

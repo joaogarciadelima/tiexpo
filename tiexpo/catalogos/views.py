@@ -53,3 +53,9 @@ def detalhe_fabricante(request, slug):
 def imagem_fabricante(request, slug):
     imagem = facade.encontrar_imagem(slug)
     return render(request, 'fabricantes/imagem_detalhe.html', {'imagem': imagem})
+
+
+@login_required
+def imagens_destaques(request):
+    imagens = {'imagens': facade.listar_destaques()}
+    return render(request, 'catalogos/imagens.html', imagens)

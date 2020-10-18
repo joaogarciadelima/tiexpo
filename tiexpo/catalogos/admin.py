@@ -11,7 +11,7 @@ class AdminCatalogo(admin.ModelAdmin):
 
 @admin.register(Imagem)
 class CatalogoImagem(admin.ModelAdmin):
-    list_display = ('titulo', 'catalogo', 'slug', 'fabricante')
+    list_display = ('titulo', 'catalogo', 'slug', 'fabricante', 'destaque')
     list_filter = ['catalogo']
     autocomplete_fields = ['catalogo']
     prepopulated_fields = {"slug": ("titulo",)}

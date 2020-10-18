@@ -1,5 +1,5 @@
 import pytest
-from model_mommy import mommy
+from model_bakery import baker
 
 from tiexpo.catalogos import facade
 from tiexpo.catalogos.models import Catalogo, Imagem
@@ -7,7 +7,7 @@ from tiexpo.catalogos.models import Catalogo, Imagem
 
 @pytest.fixture
 def catalogos(db):
-    return [mommy.make(Catalogo, titulo=s) for s in 'Antes Depois'.split()]
+    return [baker.make(Catalogo, titulo=s) for s in 'Antes Depois'.split()]
 
 
 def test_listar_catalogos_ordenados(catalogos):
@@ -16,8 +16,12 @@ def test_listar_catalogos_ordenados(catalogos):
 
 @pytest.fixture
 def imagens(db):
-    return mommy.make(Imagem, 5)
+    return baker.make(Imagem, 5)
 
 
 def test_listar_todas_fotos(imagens):
     assert list(imagens) == facade.listar_todas_imagens()
+
+
+def test_listar_destaques(imagens):
+    assert list(imagens) == facade.listar_destaques(destaque=False)
