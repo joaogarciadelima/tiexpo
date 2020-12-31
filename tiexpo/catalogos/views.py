@@ -20,6 +20,11 @@ def detalhe(request, slug):
 @login_required
 def imagem(request, slug):
     imagem = facade.encontrar_imagem(slug)
+    # liked = False
+    # if imagem.user_likes.filter(id=request.user.id).exists():
+    #     liked = True
+    # imagem['post_is_liked'] = liked
+    # imagem['number_of_likes'] = imagem.user_likes.count()
     return render(request, 'catalogos/imagem_detalhe.html', {'imagem': imagem})
 
 
@@ -59,3 +64,11 @@ def imagem_fabricante(request, slug):
 def imagens_destaques(request):
     imagens = {'imagens': facade.listar_destaques()}
     return render(request, 'catalogos/imagens.html', imagens)
+
+
+@login_required
+def new_like(request, slug):
+    if request.method == "POST":
+        user = request.user
+        imagem_curtida = facade.new_like(user=user, slug=slug)
+        return render(request, 'catalogos/imagem_detalhe.html', {'imagem': imagem_curtida})

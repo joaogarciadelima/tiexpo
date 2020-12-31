@@ -72,3 +72,13 @@ def listar_fabricantes_com_imagens():
 
 def listar_destaques(destaque=True):
     return list(Imagem.objects.filter(destaque=destaque))
+
+
+def new_like(user, slug):
+    imagem = Imagem.objects.get(slug=slug)
+    if imagem.user_likes.filter(id=user.id).exists():
+        imagem.user_likes.remove(user)
+    else:
+        imagem.user_likes.add(user)
+    imagem.save()
+    return imagem

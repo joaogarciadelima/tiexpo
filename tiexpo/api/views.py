@@ -11,6 +11,10 @@ from tiexpo.api.serializers import CatalogoImagensSerializer, FabricanteImagensS
 from tiexpo.catalogos.models import Catalogo, Imagem, Fabricante
 
 
+from rest_framework.authtoken.views import ObtainAuthToken
+from rest_framework.authtoken.models import Token
+
+
 class CatalogoList(APIView):
     """[summary]
 
@@ -167,3 +171,39 @@ class ImageDestaquesList(APIView):
         imagens = Imagem.objects.filter(destaque=True)
         serializer = ImagemSerializer(imagens, many=True)
         return Response(serializer.data)
+
+
+class LikeImage(APIView):
+    """
+    Like images
+    """
+    def get_object(self, pk):
+        try:
+            return Imagem.objects.get(pk=pk)
+        except Imagem.DoesNotExist:
+            raise Http404
+
+    def post(self, request, pk, format=None):
+        imagem = self.get_object(pk)
+        if imagem.user_likes.filter(id=request.user.id).exists():
+            imagem.user_likes.remove(request.user.id)
+        else:
+            imagem.user_likes.add(request.user.id)
+        imagem.save()
+        serializer = ImagemSerializer(imagem)
+        return Response(serializer.data)
+
+
+class CustomAuthToken(ObtainAuthToken):
+
+    def post(self, request, *args, **kwargs):
+        serializer = self.serializer_class(data=request.data,
+                                           context={'request': request})
+        serializer.is_valid(raise_exception=True)
+        user = serializer.validated_data['user']
+        token, created = Token.objects.get_or_create(user=user)
+        return Response({
+            'token': token.key,
+            'user_id': user.pk,
+            'email': user.email
+        })
