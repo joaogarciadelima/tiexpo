@@ -2,6 +2,7 @@ from datetime import datetime
 
 from django.db import models
 from django.urls import reverse
+from django.contrib.auth import get_user_model
 
 
 class Catalogo(models.Model):
@@ -48,9 +49,13 @@ class Imagem(models.Model):
     data_publicacao = models.DateField(default=datetime.now)
     fabricante = models.ForeignKey(Fabricante, related_name="imagens_fabricantes", on_delete=models.CASCADE, null=True)
     destaque = models.BooleanField(verbose_name="Destaque", default=False)
+    user_likes = models.ManyToManyField(get_user_model())
 
     def __str__(self):
         return self.titulo
+
+    def number_of_likes(self):
+        return self.user_likes.count()
 
     def get_absolute_url(self):
         return reverse('catalogos:imagem', kwargs={'slug': self.slug})

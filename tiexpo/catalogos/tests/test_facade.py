@@ -25,3 +25,8 @@ def test_listar_todas_fotos(imagens):
 
 def test_listar_destaques(imagens):
     assert list(imagens) == facade.listar_destaques(destaque=False)
+
+
+def test_likes(imagens, usuario_logado):
+    for imagem in imagens:
+        assert imagem == facade.new_like(slug=imagem.slug, user=usuario_logado)
