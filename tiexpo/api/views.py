@@ -89,6 +89,30 @@ class ImageList(APIView):
     #     return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
+# class ImageCalalogDetail(generics.ListAPIView):
+#     """
+#     Retrieve
+#     """
+#     def get_queryset(self):
+#         try:
+#             return Catalogo.objects.filter(pk=self.kwargs['pk'])
+#         except Catalogo.DoesNotExist:
+#             raise Http404
+#
+#     serializer_class = CatalogoImagensSerializer
+#
+#
+# class ImageFabricanteDetail(generics.ListAPIView):
+#     """
+#     Retrieve
+#     """
+#     def get_queryset(self):
+#         try:
+#             return Fabricante.objects.filter(pk=self.kwargs['pk'])
+#         except Catalogo.DoesNotExist:
+#             raise Http404
+#
+#     serializer_class = FabricanteImagensSerializer
 class ImageCalalogDetail(APIView):
     """
     Retrieve
@@ -157,7 +181,7 @@ class ImageApiView(generics.ListCreateAPIView):
     serializer_class = ImagemSerializer
 
 
-class ImageDestaquesList(APIView):
+class ImageDestaquesList(generics.ListCreateAPIView):
     """[summary]
 
     Api para retornar as imagens em destaque no sistema
@@ -166,11 +190,15 @@ class ImageDestaquesList(APIView):
 
     """
     # permission_classes = [permissions.IsAuthenticated]
+    search_fields = ['titulo', 'descricao', 'catalogo__titulo', 'fabricante__nome']
+    filter_backends = [filters.SearchFilter]
+    queryset = Imagem.objects.filter(destaque=True)
+    serializer_class = ImagemSerializer
 
-    def get(self, request):
-        imagens = Imagem.objects.filter(destaque=True)
-        serializer = ImagemSerializer(imagens, many=True)
-        return Response(serializer.data)
+    # def get(self, request):
+    #     imagens = Imagem.objects.filter(destaque=True)
+    #     serializer = ImagemSerializer(imagens, many=True)
+    #     return Response(serializer.data)
 
 
 class LikeImage(APIView):

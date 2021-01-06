@@ -17,6 +17,7 @@ class CatalogoImagem(admin.ModelAdmin):
     prepopulated_fields = {"slug": ("titulo",)}
     ordering = ('data_publicacao',)
     search_fields = ('titulo', 'descricao', 'catalogo__titulo', 'fabricante__nome')
+    exclude = ['user_likes']
 
 
 @admin.register(Fabricante)

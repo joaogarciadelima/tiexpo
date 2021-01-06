@@ -49,7 +49,7 @@ class Imagem(models.Model):
     data_publicacao = models.DateField(default=datetime.now)
     fabricante = models.ForeignKey(Fabricante, related_name="imagens_fabricantes", on_delete=models.CASCADE, null=True)
     destaque = models.BooleanField(verbose_name="Destaque", default=False)
-    user_likes = models.ManyToManyField(get_user_model())
+    user_likes = models.ManyToManyField(get_user_model(), null=True, blank=True)
 
     def __str__(self):
         return self.titulo
