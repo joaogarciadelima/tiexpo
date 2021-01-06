@@ -111,3 +111,4 @@ mediafiles
 
 # vscode
 .vscode
+/latest.dump
