@@ -306,11 +306,10 @@
         },
         "sendgrid": {
             "hashes": [
-                "sha256:2eb1dcb1f7d8656eed4db586e428c2c86f347590b8511d7f92993882d0e4fab9",
-                "sha256:e422c8263563ac7d664066d2f87b90bcb005b067eb7c33a9b1396442b2ed285b"
+                "sha256:1c1cca97ab968f81af43ddbbe44aade5a689da27e3e4975dc366042499620abe",
+                "sha256:2558a8b2cf12677ceb99f8b611d914af5b9a2fd7ff3c0578e8299b4224e10071"
             ],
-            "index": "pypi",
-            "version": "==6.6.0"
+            "version": "==6.7.1"
         },
         "sentry-sdk": {
             "hashes": [
