@@ -49,6 +49,8 @@ INSTALLED_APPS = [
     'tiexpo.api',
 ]
 
+DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'
+
 CORS_ORIGIN_ALLOW_ALL = True
 
 # CORS_ORIGIN_WHITELIST = [
