@@ -94,10 +94,10 @@
         },
         "django-cors-headers": {
             "hashes": [
-                "sha256:c28f96b77300efed0ff6b937d9ad2a7e80a7cb3ae5ef14968e793d540600fcd3",
-                "sha256:dc121efc242ebd1acad5df5a3b9907f165beeca3eeb7f839990a71a3771ac4f5"
+                "sha256:a22be2befd4069c4fc174f11cf067351df5c061a3a5f94a01650b4e928b0372b",
+                "sha256:eb98389bf7a2afc5d374806af4a9149697e3a6955b5a2dc2bf049f7d33647456"
             ],
-            "version": "==3.9.0"
+            "version": "==3.11.0"
         },
         "django-extensions": {
             "hashes": [
