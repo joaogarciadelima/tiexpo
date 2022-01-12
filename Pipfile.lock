@@ -310,9 +310,10 @@
         },
         "python-http-client": {
             "hashes": [
-                "sha256:2aef67b4f49147e623f35f32b82756e30844a8f1b55a8c7c219de694f4818214"
+                "sha256:558ece0088af1c3430d55ea65e3f06a6a3d7cdd9e14bd905916081ce876c5aaf",
+                "sha256:a41da9bd1d38c6a5fc673d1667501e9e691783f7caa14db70985da43c6d99fba"
             ],
-            "version": "==3.3.3"
+            "version": "==3.3.5"
         },
         "pytz": {
             "hashes": [
