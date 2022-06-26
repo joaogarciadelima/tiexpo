@@ -558,11 +558,10 @@
         },
         "model-bakery": {
             "hashes": [
-                "sha256:7e06071c7ba5c58f9c1d7245b4b80cc5240806f30c4561f5c04a652d67626725",
-                "sha256:bebde0d4f895f55a8cf26706275a238fecdf0fddd227214675b7351598c99ce5"
+                "sha256:51f95fff4ca4b28d74db28e84509a061ab51161cb66c8895ce80e4b064f58029",
+                "sha256:efded7c4d8f72f9b751eebe3be555196dcac7e1d5da9e7f990cec60833c6bf98"
             ],
-            "index": "pypi",
-            "version": "==1.3.2"
+            "version": "==1.6.0"
         },
         "packaging": {
             "hashes": [
