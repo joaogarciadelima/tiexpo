@@ -360,10 +360,8 @@
             "version": "==0.4.2"
         },
         "starkbank-ecdsa": {
-            "hashes": [
-                "sha256:f7b434b4a1e0ba082fb1804b908b79523973fd17b1fde377078857f7cee299d1"
-            ],
-            "version": "==1.1.1"
+            "hashes": [],
+            "version": "==2.2.0"
         },
         "traitlets": {
             "hashes": [
