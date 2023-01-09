@@ -303,10 +303,8 @@
             "version": "==2.8.2"
         },
         "python-decouple": {
-            "hashes": [
-                "sha256:68e4b3fcc97e24bc90eecc514852d0bf970f4ff031f5f7a6728ddafa9afefcaf"
-            ],
-            "version": "==3.5"
+            "hashes": [],
+            "version": "==3.7"
         },
         "python-http-client": {
             "hashes": [
